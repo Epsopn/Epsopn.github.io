@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>第一次搭建博客</title>
+      <link href="/2020/05/03/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2020/05/03/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="第一次搭建博客遇到的问题"><a href="#第一次搭建博客遇到的问题" class="headerlink" title="第一次搭建博客遇到的问题"></a>第一次搭建博客遇到的问题</h4><blockquote><p><strong>身为小白的第一个搭建个人博客</strong>，中间的坑是在是太多了</p></blockquote><hr><p>由于对软件的不熟悉装载了<code>node.js14.1.0</code>版本导致了一直无法上传到git里面，纠结了两天的时间，最后在群中得知，可能是版本过高导致，我又卸载装<code>v12</code>版本，果然两天没有搞定的错误就这样搞定了。</p><hr><p>接下来的就比较好弄了，一步一步的尝试写来，稀里糊涂的就做了个差不多，</p><blockquote><p>总结一句话：</p></blockquote><p><em>不到万不得已，最后不要升级，毕竟bug太多，没有前人财路，容易摔死</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 心得 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2020/05/02/hello-world/"/>
       <url>/2020/05/02/hello-world/</url>
