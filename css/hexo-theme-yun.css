@@ -133,7 +133,7 @@ body::before {
   animation-name: bgFadeIn;
   animation-duration: 2s;
   opacity: 0.8;
-  filter: blur(19px);
+  filter: blur(6px);
 }
 @-moz-keyframes bgFadeIn {
   from {
@@ -166,6 +166,21 @@ body::before {
   to {
     opacity: 0.8;
   }
+}
+body {
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/pointer.cur"), auto;
+}
+a {
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), auto;
+}
+a:hover {
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), auto;
+}
+.hty-icon-button {
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur"), auto;
+}
+input {
+  cursor: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/text.cur"), auto;
 }
 .banner {
   display: flex;
@@ -485,7 +500,7 @@ body::before {
 .with-love {
   display: inline-block;
   margin: 5px 5px 0 5px;
-  color: #0078E7;
+  color: #1cbbb4;
 }
 #busuanzi_value_site_uv,
 #busuanzi_value_site_pv,
