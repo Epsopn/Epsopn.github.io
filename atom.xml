@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://epsopn.top/"/>
-  <updated>2020-05-05T12:49:19.000Z</updated>
+  <updated>2020-05-05T15:51:54.391Z</updated>
   <id>https://epsopn.top/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring框架的介绍</title>
+    <link href="https://epsopn.top/archives/89a211cf.html"/>
+    <id>https://epsopn.top/archives/89a211cf.html</id>
+    <published>2020-05-05T15:32:57.000Z</published>
+    <updated>2020-05-05T15:51:54.391Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-Spring框架简介"><a href="#1-Spring框架简介" class="headerlink" title="1. Spring框架简介"></a>1. Spring框架简介</h2><p>框架：在具体的表现来看，是一系列的jar包文件，普通的jar包只是工具包，而框架更多的是解决了某些特定存在的问题，例如开发效率的问题、执行效率的问题、安全性的问题、代码的可维护性的问题等……使得开发人员在使用框架开发项目时，不必再关心这些问题，或者这些问题已经得到很大程度的缓解！在使用框架时，可能还需要遵循框架的特定使用方式来编程！</p><blockquote><p>在学习框架课程时，需要有一些“不求甚解”的心态，切不可尝试深度理解框架！更多的应该是掌握框架的正确使用方式，对框架的原理不要过度纠结！</p></blockquote><p>Spring框架主要是用于创建对象和管理对象的！</p><h4 id="使用Spring框架的原因"><a href="#使用Spring框架的原因" class="headerlink" title="使用Spring框架的原因"></a>使用Spring框架的原因</h4><p>Spring框架的主要作用之一就是创建对象，但是，创建对象本身是一件非常简单的事情，例如：</p><pre class=" language-java"><code class="language-java">User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>但是，在实际开发项目时，一个项目中的类会非常多，需要创建的对象也非常多，并且，类与类之间的<strong>依赖</strong>会比较复杂，如果直接创建对象，会导致<strong>耦合度</strong>较高，不利于项目的管理和维护！</p><h4 id="Spring框架的优点都有什么？"><a href="#Spring框架的优点都有什么？" class="headerlink" title="Spring框架的优点都有什么？"></a>Spring框架的优点都有什么？</h4><ul><li><p>简化编程：Spring对JavaEE中的一些比较繁琐的API做了简化和封装，使用封装之后的API不仅代码更简洁，而且质量更高。</p></li><li><p>解耦：对象之间的依赖关系由容器来统一管理、降低了对象之间的耦合度、方便代码的维护，同时也实现了资源的统一调度和管理。</p></li><li><p>支持面向切面编程AOP：可以方便对程序添加通用的服务，比如事务、权限管理等。</p></li><li><p>集成其它框架：不发明重复的轮子，集成其它一些优秀框架、使开发者用统一的并且更加简洁的方式来使用这些框架。</p></li><li><p>轻量：可以依赖项目的实际要求，有选择的使用Spring框架的全部或者一部分。</p></li></ul><h2 id="2-通过Spring框架创建对象，并从中获取所需的对象"><a href="#2-通过Spring框架创建对象，并从中获取所需的对象" class="headerlink" title="2. 通过Spring框架创建对象，并从中获取所需的对象"></a>2. 通过Spring框架创建对象，并从中获取所需的对象</h2><p>新建一个Maven Project，在创建过程中，勾选中<strong>Create a simple project</strong>选项，在<strong>Group Id</strong>一栏输入<code>cn.tedu</code>，在<strong>Artifact Id</strong>一栏输入<code>spring01</code>，下方的<strong>Packaging</strong>选择<code>war</code>，刚创建好的项目因为没有<strong>web.xml</strong>文件会报错，生成该文件即可。</p><blockquote><p>在Packaing一栏也可以选择jar，并不一定必须选择war，后续会要求必须使用war，所以，提前体验也是可以的！</p></blockquote><p>打开项目的<strong>pom.xml</strong>文件，在其中添加Spring的依赖！在使用Spring框架时，需要添加的依赖是<code>spring-context</code>，具体代码是：</p><pre><code>&lt;dependencies&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.springframework&lt;/groupId&gt;            &lt;artifactId&gt;spring-context&lt;/artifactId&gt;            &lt;version&gt;5.1.5.RELEASE&lt;/version&gt;        &lt;/dependency&gt;    &lt;/dependencies&gt;</code></pre><blockquote><p>当需要查询某个依赖时，在浏览器中搜索“mvn”关键字，打开 <a href="http://www.mvnrepository.com" target="_blank" rel="noopener external nofollow noreferrer">http://www.mvnrepository.com</a> 网站，并搜索依赖的名称，在查询结果中找到匹配度最高的依赖，选择版本，就可以查询到依赖的代码。</p></blockquote><p>然后，将下载的Spring配置文件的压缩包解压，得到<strong>applicationContext.xml</strong>文件，这个文件就是Spring的配置文件，将它复制到项目的<strong>src/main/resources</strong>文件夹下！</p><blockquote><p>如果该文件提示错误，可以不处理，并不影响开发和运行！</p></blockquote><p>可以在Spring的配置文件中配置由Spring创建并管理的对象！</p><p>假设需要由Spring创建一个<code>Date</code>类的对象，则在该文件中添加：</p><pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- id属性：自定义名称，后续将根据这个名称来获取对象，推荐使用类名将首字母改为小写 --></span><span class="token comment" spellcheck="true">&lt;!-- class属性：需要Spring框架创建哪个类的对象，取值是类的全名，即包名与类名 --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>date<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>java.util.Date<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span></code></pre><p>至此，已经配置好了需要由Spring管理的对象，后续，当该配置文件被加载时，Spring框架就会创建<code>java.util.Date</code>类的对象，开发人员也可以通过id属性值<code>date</code>获取该对象！</p>]]></content>
+    
+    <summary type="html">
+    
+      总结一下使用Spring后，Spring的总结，后期会不定期更新。
+    
+    </summary>
+    
+    
+      <category term="JavaSpring" scheme="https://epsopn.top/categories/JavaSpring/"/>
+    
+    
+      <category term="JavaSpring" scheme="https://epsopn.top/tags/JavaSpring/"/>
+    
+  </entry>
   
   <entry>
     <title>Valine出现Code 403 访问被api域名白名单拒绝，请检查你的安全域名设置</title>
