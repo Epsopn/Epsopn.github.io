@@ -5,10 +5,10 @@
     
     <entry>
       <title>Valine出现Code 403 访问被api域名白名单拒绝，请检查你的安全域名设置</title>
-      <link href="/archives/undefined.html"/>
-      <url>/archives/undefined.html</url>
+      <link href="/archives/218fe6f9.html"/>
+      <url>/archives/218fe6f9.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Valine出现Code-403-访问被api域名白名单拒绝，请检查你的安全域名设置"><a href="#Valine出现Code-403-访问被api域名白名单拒绝，请检查你的安全域名设置" class="headerlink" title="Valine出现Code 403 访问被api域名白名单拒绝，请检查你的安全域名设置"></a>Valine出现Code 403 访问被api域名白名单拒绝，请检查你的安全域名设置</h2><blockquote><h5 id="大致情况："><a href="#大致情况：" class="headerlink" title="大致情况："></a>大致情况：</h5></blockquote><p>刚刚用github成功解析了我的新域名，缺发现了这个错误</p><p><code>Code 403: 访问被API域名白名单拒绝,请检查你的安全域名设置.</code></p><a id="more"></a><blockquote><h5 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h5></blockquote><p>只需要在leancloud里面把你新的域名地址添加进来就ok了</p><p>在设置&gt;&gt;安全中心&gt;&gt;web安全域名</p><img src="/2020/05/04/%E8%AE%BF%E9%97%AE%E8%A2%ABapi%E5%9F%9F%E5%90%8D%E7%99%BD%E5%90%8D%E5%8D%95%E6%8B%92%E7%BB%9D%EF%BC%8C%E8%AF%B7%E6%A3%80%E6%9F%A5%E4%BD%A0%E7%9A%84%E5%AE%89%E5%85%A8%E5%9F%9F%E5%90%8D%E8%AE%BE%E7%BD%AE/qq.png" class loading="lazy"><p>这样问题就解决了。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Valine出现Code-403-访问被api域名白名单拒绝，请检查你的安全域名设置"><a href="#Valine出现Code-403-访问被api域名白名单拒绝，请检查你的安全域名设置" class="headerlink" title="Valine出现Code 403 访问被api域名白名单拒绝，请检查你的安全域名设置"></a>Valine出现Code 403 访问被api域名白名单拒绝，请检查你的安全域名设置</h2><blockquote><h5 id="大致情况："><a href="#大致情况：" class="headerlink" title="大致情况："></a>大致情况：</h5></blockquote><p>刚刚用github成功解析了我的新域名，缺发现了这个错误</p><p><code>Code 403: 访问被API域名白名单拒绝,请检查你的安全域名设置.</code></p><a id="more"></a><blockquote><h5 id="解决办法："><a href="#解决办法：" class="headerlink" title="解决办法："></a>解决办法：</h5></blockquote><p>只需要在leancloud里面把你新的域名地址添加进来就ok了</p><p>在设置&gt;&gt;安全中心&gt;&gt;web安全域名</p><img src="/archives/218fe6f9/qq.png" class loading="lazy"><p>这样问题就解决了。</p>]]></content>
       
       
       <categories>
@@ -30,8 +30,8 @@
     
     <entry>
       <title>第一次搭建博客</title>
-      <link href="/archives/undefined.html"/>
-      <url>/archives/undefined.html</url>
+      <link href="/archives/5ff0b802.html"/>
+      <url>/archives/5ff0b802.html</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="第一次搭建博客遇到的问题"><a href="#第一次搭建博客遇到的问题" class="headerlink" title="第一次搭建博客遇到的问题"></a>第一次搭建博客遇到的问题</h4><blockquote><p><strong>身为小白的第一个搭建个人博客</strong>，中间的坑是在是太多了</p></blockquote><hr><a id="more"></a><p>由于对软件的不熟悉装载了<code>node.js14.1.0</code>版本导致了一直无法上传到git里面，查询了很多解决办法，因为是很新的版本，这个错误应该还没有遇到过。纠结了两天的时间，最后在群中得知，可能是版本过高导致，我又卸载装<code>v12</code>版本，果然两天没有搞定的错误就这样搞定了。</p><hr><p>接下来的就比较好弄了，一步一步的尝试写来，稀里糊涂的就做了个差不多，</p><blockquote><p>总结一句话：</p></blockquote><p><em>不到万不得已，最后不要升级，毕竟bug太多，没有前人踩路，容易摔死</em></p>]]></content>
       
