@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.epsopn.top/"/>
-  <updated>2020-05-05T15:51:54.391Z</updated>
+  <updated>2020-05-06T14:19:28.903Z</updated>
   <id>https://www.epsopn.top/</id>
   
   <author>
@@ -15,6 +15,53 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring的介绍2</title>
+    <link href="https://www.epsopn.top/archives/e9e41cd3.html"/>
+    <id>https://www.epsopn.top/archives/e9e41cd3.html</id>
+    <published>2020-05-06T14:12:10.000Z</published>
+    <updated>2020-05-06T14:19:28.903Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="3-Spring管理对象的作用域与生命周期"><a href="#3-Spring管理对象的作用域与生命周期" class="headerlink" title="3. Spring管理对象的作用域与生命周期"></a>3. Spring管理对象的作用域与生命周期</h2><h3 id="3-2-Spring管理对象的生命周期"><a href="#3-2-Spring管理对象的生命周期" class="headerlink" title="3.2. Spring管理对象的生命周期"></a>3.2. Spring管理对象的生命周期</h3><p>生命周期：某个对象从创建到最终销毁的整个历程！在整个生命周期历程中，会设计一些生命周期的“阶段”，约定这个“阶段”应该做哪些事情，Servlet中，就将Servlet的生命周期划分为<code>init()</code>、<code>service()</code>、<code>destroy()</code>这3大“阶段”，具体的表现为3个方法！与Servlet相似的这类的组件的特点是：开发人员只需要在编写代码时创建出对应的类，并重写其中指定的方法即可，并不需要自行创建类的对象，更不需要调用方法，最终，程序在运行起来后，方法会被自动的调用，例如Servlet组件就是由Tomcat容器创建的对象，并由Tomcat调用的其中的方法！由于类的创建、方法的调用都是由<a id="more"></a>Tomcat来完成的，所以，开发人员不必关心Servlet中的方法在几点几分几秒被调用，只知道某些会在满足什么条件时被调用，并决定被调用时应该如何处理数据，所以，在开发Servlet时，开发人员只需要重写对应的方法即可！总的来说，在讨论生命周期问题时，特定的组件（某些类）的创建过程、销毁过程，及其中某些方法的调用的主动权都不在开发人员手里，而是由某些容器进行管理的，开发人员就不必关心方法的调用时间，只需要关心特定的方法在哪种情景下会被调用，从而决定被调用时应该做哪些事情！生命周期在管理对象中的表现就是一个个的方法，在学习生命周期时，一定要了解这些方法在什么情景下被调用、调用多少次！</p><p>在学习Spring时，可以发现，所编写的类如果交给Spring来管理，由何时创建对象、何时销毁对象也不由开发人员来管理了！如果开发人员需要在整个对象的管理过程中添加一些管理方法，例如“在销毁之前释放某些资源”，则可以在类中添加创建和销毁时的生命周期方法，例如：</p><pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>tedu<span class="token punctuation">.</span>spring<span class="token punctuation">;</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token keyword">extends</span> <span class="token class-name">Object</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"创建了User类的对象！！！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">// 生命周期方法：初始化时执行的方法</span>    <span class="token comment" spellcheck="true">// 方法的声明：自定义名称，空参数列表</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"User.init()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true">// 生命周期方法：销毁之前执行的方法</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"User.destroy()"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>然后，还需要在Spring的配置文件中进行配置：</p><pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- init-method：初始化方法的名称 --></span><span class="token comment" spellcheck="true">&lt;!-- destroy-method：销毁方法的名称 --></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.tedu.spring.User<span class="token punctuation">"</span></span>        <span class="token attr-name">init-method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>init<span class="token punctuation">"</span></span> <span class="token attr-name">destroy-method</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>destroy<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span></code></pre><p>当运行时，可以发现：在执行了构造方法之后，就会自动调用初始化方法，在最终释放资源之前，就会执行销毁方法！</p><p>当编写了某个类由交Spring管理后，并不是必须声明并配置生命周期方法，仅在有需要的时候添加方法并配置即可，也不一定需要同时添加初始化和销毁这2个方法，完全可以只添加并配置其中的某1个，按需使用即可！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;3-Spring管理对象的作用域与生命周期&quot;&gt;&lt;a href=&quot;#3-Spring管理对象的作用域与生命周期&quot; class=&quot;headerlink&quot; title=&quot;3. Spring管理对象的作用域与生命周期&quot;&gt;&lt;/a&gt;3. Spring管理对象的作用域与生命周期&lt;/h2&gt;&lt;h3 id=&quot;3-2-Spring管理对象的生命周期&quot;&gt;&lt;a href=&quot;#3-2-Spring管理对象的生命周期&quot; class=&quot;headerlink&quot; title=&quot;3.2. Spring管理对象的生命周期&quot;&gt;&lt;/a&gt;3.2. Spring管理对象的生命周期&lt;/h3&gt;&lt;p&gt;生命周期：某个对象从创建到最终销毁的整个历程！在整个生命周期历程中，会设计一些生命周期的“阶段”，约定这个“阶段”应该做哪些事情，Servlet中，就将Servlet的生命周期划分为&lt;code&gt;init()&lt;/code&gt;、&lt;code&gt;service()&lt;/code&gt;、&lt;code&gt;destroy()&lt;/code&gt;这3大“阶段”，具体的表现为3个方法！与Servlet相似的这类的组件的特点是：开发人员只需要在编写代码时创建出对应的类，并重写其中指定的方法即可，并不需要自行创建类的对象，更不需要调用方法，最终，程序在运行起来后，方法会被自动的调用，例如Servlet组件就是由Tomcat容器创建的对象，并由Tomcat调用的其中的方法！由于类的创建、方法的调用都是由&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaSpring" scheme="https://www.epsopn.top/categories/JavaSpring/"/>
+    
+    
+      <category term="JavaSpring" scheme="https://www.epsopn.top/tags/JavaSpring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>今天都干什么了？</title>
+    <link href="https://www.epsopn.top/archives/ab8a344f.html"/>
+    <id>https://www.epsopn.top/archives/ab8a344f.html</id>
+    <published>2020-05-06T14:05:36.000Z</published>
+    <updated>2020-05-06T14:10:12.385Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>今天是无聊的一天，发呆的一天，为什么他们都折磨忙碌</p><img src="/archives/ab8a344f/a.jpg" class loading="lazy"><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天是无聊的一天，发呆的一天，为什么他们都折磨忙碌&lt;/p&gt;
+&lt;img src=&quot;/archives/ab8a344f/a.jpg&quot; class&gt;
+    
+    </summary>
+    
+    
+      <category term="问号问号" scheme="https://www.epsopn.top/categories/%E9%97%AE%E5%8F%B7%E9%97%AE%E5%8F%B7/"/>
+    
+    
+      <category term="许多的问号" scheme="https://www.epsopn.top/tags/%E8%AE%B8%E5%A4%9A%E7%9A%84%E9%97%AE%E5%8F%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring框架的介绍</title>
