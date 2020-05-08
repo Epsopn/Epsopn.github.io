@@ -126,7 +126,7 @@ body::before {
   height: 100%;
   z-index: -1;
   opacity: 0.8;
-  background-image: url("https://api.ixiaowai.cn/api/api.php");
+  background-image: url("https://cdn.jsdelivr.net/gh/Epsopn/bizhi@master/87c01ec7gy1frx49krj9dj21hc0u016f.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1642,7 +1642,7 @@ td {
   left: 0;
   width: 20rem;
   background: #fff;
-  background-image: url("https://cdn.jsdelivr.net/gh/Epsopn/biz@master/qqqqqq.jpg");
+  background-image: url("https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom 1rem center;
