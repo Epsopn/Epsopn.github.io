@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="SpringBoot简介"><meta name="keywords" content="SpringBoot"><meta name="author" content="阿呆"><meta name="copyright" content="阿呆"><meta name="theme-color" content="#1cbbb4"><title>SpringBoot简介 | 阿呆の小客栈</title><link rel="shortcut icon" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#1cbbb4"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="stylesheet" href="/css/hexo-theme-yun.css"><link rel="alternate" href="/atom.xml" title="阿呆の小客栈"><script id="yun-config">
+    let Yun = window.Yun || {};
+    let CONFIG = {"root":"/","title":"阿呆の小客栈","version":"0.6.2","anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"local_search":{"path":"/search.xml"},"fireworks":{"colors":["31,204,196","229,62,49"]}};
+  </script><script src="//at.alicdn.com/t/font_1140697_rtqh36oinzl.js" async></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="阿呆の小客栈" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-duotone-dark.css" type="text/css"></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle sidebar-toggle-fixed hty-icon-button"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><aside class="sidebar"><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc sidebar-nav-active hty-icon-button" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about" title="阿呆"><img width="96" loading="lazy" src="/images/c.jpg" alt="阿呆"></a><div class="site-author-name"><a href="/about/">阿呆</a></div><a class="site-name" href="/about/site.html">阿呆の小客栈</a><sub class="site-subtitle">z-p</sub><div class="site-desciption">嗨，你好，我很有趣,发布&解决&收获</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item site-state-posts"><a href="/archives" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item site-state-categories"><a href="/categories" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item site-state-tags"><a href="/tags" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">5</span></a></div><a class="site-state-item hty-icon-button" href="/about" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener external nofollow noreferrer" href="https://music.163.com/#/my/m/music/playlist?id=5000423366" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener external nofollow noreferrer" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=193937350@qq.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener external nofollow noreferrer" href="https://www.zhihu.com/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener external nofollow noreferrer" href="https://space.bilibili.com/" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="我的女朋友们" style="color:pink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div></div><script defer src="/js/sidebar.js"></script><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SpringBoot简介"><span class="toc-number">1.</span> <span class="toc-text">1. SpringBoot简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用SpringBoot开发用户注册登录"><span class="toc-number">2.</span> <span class="toc-text">2. 使用SpringBoot开发用户注册登录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建SpringBoot项目"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 创建SpringBoot项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-检查项目是否基本可用"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. 检查项目是否基本可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-在项目中添加静态页面"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. 在项目中添加静态页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-使用控制器接收客户端提交的请求"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. 使用控制器接收客户端提交的请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-配置数据库连接"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. 配置数据库连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-实现注册相关的数据库编程"><span class="toc-number">2.6.</span> <span class="toc-text">2.6. 实现注册相关的数据库编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-开发处理注册的控制器"><span class="toc-number">2.7.</span> <span class="toc-text">2.7. 开发处理注册的控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-前端页面"><span class="toc-number">2.8.</span> <span class="toc-text">2.8. 前端页面</span></a></li></ol></li></ol></div></div></div><script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script><script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script><div class="widget tagcloud" id="myCanvasContainer" align="center"><canvas id="resCanvas" width="300" height="300"><a href="/tags/JavaSpring/" style="font-size: 10px;">JavaSpring</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 10px;">分享</a> <a href="/tags/%E5%BF%83%E5%BE%97/" style="font-size: 10px;">心得</a> <a href="/tags/%E8%AE%B8%E5%A4%9A%E7%9A%84%E9%97%AE%E5%8F%B7/" style="font-size: 10px;">许多的问号</a></canvas></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://www.epsopn.top/archives/c35b400a.html"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="阿呆"><meta itemprop="description" content="SpringBoot简介"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="阿呆の小客栈"></span><header class="post-header"><h1 class="post-title" itemprop="name headline" style="color: undefined">SpringBoot简介</h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2020-05-09 22:30:52" itemprop="dateCreated datePublished" datetime="2020-05-09T22:30:52+08:00">2020-05-09</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">36k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">33 分钟</span></span></span><span class="post-busuanzi"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span id="busuanzi_value_page_pv"></span></span></span><span class="leancloud_visitors" id="/archives/c35b400a.html" data-flag-title="SpringBoot简介"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-category"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span> <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category" href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="text">SpringBoot</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag" href="/tags/SpringBoot/"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">SpringBoot</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content post-markdown"><h2 id="1-SpringBoot简介"><a href="#1-SpringBoot简介" class="headerlink" title="1. SpringBoot简介"></a>1. SpringBoot简介</h2><p>SpringBoot是一个默认就集成了绝大部分常规开发时都使用的依赖、完成了绝大部分的常规配置、基于SpringMVC的框架。</p>
+<p>SpringBoot的核心思想是<strong>约定大于配置</strong>，因为在传统的SSM项目中，创建项目后，需要自定义大量的配置，而不同的项目的配置却大同小异，甚至就是完全相同，所以，SpringBoot就直接完成了相关的配置，并要求使用者遵循配置值的约定，例如它将<code>DispatcherServlet</code>的映射路径配置为<code>/*</code>，则使用者就按照这个配置值使用即可，无须自已编写配置！</p>
+<a id="more"></a>
+
+<h2 id="2-使用SpringBoot开发用户注册登录"><a href="#2-使用SpringBoot开发用户注册登录" class="headerlink" title="2. 使用SpringBoot开发用户注册登录"></a>2. 使用SpringBoot开发用户注册登录</h2><h3 id="2-1-创建SpringBoot项目"><a href="#2-1-创建SpringBoot项目" class="headerlink" title="2.1. 创建SpringBoot项目"></a>2.1. 创建SpringBoot项目</h3><p>如果要创建SpringBoot项目，常规的创建方式有：</p>
+<ul>
+<li>基于SpringBoot的父级项目来创建新的项目；</li>
+<li>使用开发工具的创建向导来创建；</li>
+<li>从Spring网站创建项目并导入到本地开发工具中。</li>
+</ul>
+<p>本次使用以上介绍的第3种做法，首先，打开<code>https://start.spring.io/</code>网站，在网页中主要确定几项：</p>
+<ul>
+<li>所使用的SpringBoot版本；</li>
+<li>Group与Artifact，相当于在Eclipse中创建Maven项目时指定的Group Id和Artifact Id；</li>
+<li>强烈建议<strong>不要</strong>修改默认生成的Package name，默认值就是由填写的Group和Artifact值决定的；</li>
+<li>确定使用jar或war；</li>
+<li>添加必要的依赖。</li>
+</ul>
+<p>完成后，点击页面中的<strong>Generate</strong>按钮就可以开始生成项目并自动下载该项目！</p>
+<p>解压下载得到的压缩包文件，将得到项目文件夹，为了便于管理项目，推荐将该文件夹移动到Workspace中，避免以后找不到这个项目了。</p>
+<p>然后，在Eclipse中，通过<strong>Import</strong> &gt; <strong>Existing Maven Projects</strong>导入项目，默认的项目结构并不完整，可以暂且不管，后续项目更新完成后就会恢复正常，导入项目后，项目会开始自动下载所需的依赖，这个过程中只需要保证能够连接到Maven服务器，确保能下载所依赖的jar包，然后，等待即可，如果项目没有开始自动下载，对项目点右键，选择<strong>Maven</strong> &gt; <strong>Update Project</strong>更新即可。</p>
+<blockquote>
+<p>建议使用4.11及以上版本的Eclipse，如果使用的是较低版本的Eclipse，在pom.xml文件中可能报错，这是因为较低版本的Eclipse中内置的Maven配置版本较低导致的，而较高版本的Eclipse中内置的Maven配置版本较高，就不会出错，并且，即使出错，也不影响正常的开发和运行。</p>
+</blockquote>
+<h3 id="2-2-检查项目是否基本可用"><a href="#2-2-检查项目是否基本可用" class="headerlink" title="2.2. 检查项目是否基本可用"></a>2.2. 检查项目是否基本可用</h3><p>展开项目中的<strong>src/test/java</strong>，其中，已经存在<code>cn.tedu.sample</code>包，这个包的名称是创建项目时填写的Group和Artifact决定的，<strong>这个包的名称是不允许修改的，并且，项目中所有的单元测试类都必须放在这个包或其子包中</strong>！在包中已经存在<code>SampleApplicationTests</code>类，类中有<code>contextLoads()</code>方法，通过单元测试的方式，直接测试方法，如果能成功运行，则表示测试环境是正常的！</p>
+<p>展开项目中的<strong>src/main/java</strong>，其中，已经存在<code>cn.tedu.sample</code>包，这个包的名称是创建项目时填写的Group和Artifact决定的，<strong>这个包的名称是不允许修改的，并且，项目中所有的单元测试类都必须放在这个包或其子包中</strong>！在包中已经存在<code>SampleApplication</code>类，它是项目的<strong>启动类</strong>，类中有<code>main()</code>方法，这个<code>main()</code>就是整个项目的启动方法。</p>
+<h3 id="2-3-在项目中添加静态页面"><a href="#2-3-在项目中添加静态页面" class="headerlink" title="2.3. 在项目中添加静态页面"></a>2.3. 在项目中添加静态页面</h3><p>在SpringBoot项目中，在<strong>src/main/resources</strong>下，默认就存在<strong>static</strong>文件夹，这个文件就是SpringBoot项目用于存放静态资源（网页文件、css文件、js文件、图片文件等）的文件夹！</p>
+<p>所以，可以在<strong>static</strong>文件夹下创建<strong>index.html</strong>文件，内容可以自行设计，完成后，启动项目，在浏览器中输入<code>http://localhost:8080/</code>即可访问。</p>
+<p>因为SpringBoot框架内置了Tomcat，每个项目都有独立的Tomcat，在部署项目时，会将<code>Context Path</code>设置为<code>&quot;&quot;</code>，即空字符串，所以，在SpringBoot的启动日志中也会有：</p>
+<pre><code>Tomcat started on port(s): 8080 (http) with context path &#39;&#39;</code></pre><p>所以，最后，在执行访问时，URL的端口号右侧不需要添加项目名称！</p>
+<p>另外，<strong>index.html</strong>是默认的资源名称，所以，如果需要访问的就是这个资源，则URL中也不必显式的指定资源名。</p>
+<p>在SpringBoot项目中，在<strong>src/main/resources</strong>下默认即存在<strong>application.properties</strong>文件，这个文件是整个项目的配置文件，后续相关的配置都需要写在这个文件中！例如，可以在该文件中添加配置：</p>
+<pre><code>server.port=80</code></pre><p>就可以把Tomcat的端口号改为<code>80</code>，如果使用的是Windows操作系统，重新启动项目，通过<code>http://localhost/</code>即可访问刚才的页面，因为<code>80</code>端口是HTTP协议的默认端口，所以，当尝试提交HTTP请求时，如果没有显式的指定端口号，会视为尝试访问服务器的<code>80</code>端口！如果使用的是Mac OS或Linux操作系统，这些操作系统对80端口的使用是非常严格的，需要自行在操作系统中进行相关配置后，才允许使用80端口！</p>
+<p><strong>注意：如果自行指定端口，推荐使用4位数甚至5位的端口号，因为2位数和3位数的许多端口号都被某些协议默认使用了，如果使用这些端口号，就会导致各服务产生冲突，某些服务将无法正常使用！</strong></p>
+<p>另外，如果在SpringBoot项目中，还会使用到Thymeleaf等模版技术，应该将模版页面放在<strong>src/main/resources/templates/</strong>文件夹下。</p>
+<h3 id="2-4-使用控制器接收客户端提交的请求"><a href="#2-4-使用控制器接收客户端提交的请求" class="headerlink" title="2.4. 使用控制器接收客户端提交的请求"></a>2.4. 使用控制器接收客户端提交的请求</h3><p>在<strong>src/main/java</strong>下的<code>cn.tedu.sample</code>包是SpringBoot项目默认组件扫描的根包，所以，在项目中创建的所有组件类（需要由Spring框架创建并管理的）必须放在这个包或其子包中！</p>
+<p>在<code>cn.tedu.sample</code>包中创建<code>HelloController</code>控制器，在类的声明之前添加<code>@Controller</code>注解，并在类中添加处理请求的方法，例如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>tedu<span class="token punctuation">.</span>sample<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>RequestMapping<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Controller</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloController</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+  <span class="token annotation punctuation">@ResponseBody</span>
+  <span class="token keyword">public</span> String <span class="token function">showHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"SpringBoot框架真好用！！！"</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>编写完成后，重启项目，在浏览器中输入<code>http://localhost:8080/hello</code>即可请求到以上控制器中的资源！</p>
+<p>SpringBoot项目默认已经配置了<code>DispatcherServlet</code>，并且，映射的路径是<code>/*</code>，所以，在配置请求路径时，并不要求路径中的资源是以<code>.do</code>作为后缀，同时，也就意味着当前项目中所有请求路径都会被SpringMVC框架所处理！</p>
+<p>SpringBoot框架将所有内置的框架、开发环境中的编码已经全部设置为<code>UTF-8</code>了，所以，在使用SpringBoot时，默认都是可以直接支持中文的！</p>
+<p>在编写控制器时，还可以使用一些新的注解：</p>
+<ul>
+<li><code>@RestController</code>：该注解可以用于替代此前使用的<code>@Controller</code>，使用该注解后，当前控制器类中所有的方法默认都是响应正文，相当于每个方法之前都添加了<code>@ResponseBody</code>，所以，可以简单的理解为<code>@RestController = @Controller + @ResponseBody</code>；</li>
+<li><code>@GetMapping</code>：该注解相当于<code>@RequestMapping(method=RequestMethod.GET)</code>；</li>
+<li><code>@PostMapping</code>：该注解相当于<code>@RequestMapping(method=RequestMethod.POST)</code>；</li>
+</ul>
+<p>以上注解并不是SpringBoot项目新增的，而是SpringMVC框架中本来就有的，但是，在传统的SpringMVC框架中，这些注解是不能直接使用的，需要另行配置，而SpringBoot默认已经完成了这些配置，所以，可以直接使用！</p>
+<h3 id="2-5-配置数据库连接"><a href="#2-5-配置数据库连接" class="headerlink" title="2.5. 配置数据库连接"></a>2.5. 配置数据库连接</h3><p>在SpringBoot项目中，如果涉及数据库编程，需要自行添加数据库相关的依赖，虽然SpringBoot默认能集成绝大部分常规依赖，但是，它无法直接确定每个开发者使用的是哪种数据库、哪种数据库编程时使用的框架，所以，是需要自行添加的！</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.1.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>runtime<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<p>当SpringBoot项目添加了数据库相关的依赖后，启动项目时，就会自动尝试读取数据库连接的配置信息，如果没有配置信息，则启动项目会报错！</p>
+<p>所以，需要在<strong>application.properties</strong>中添加配置：</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">spring.datasource.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/tedu_ums?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai</span>
+<span class="token attr-name">spring.datasource.username</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
+<span class="token attr-name">spring.datasource.password</span><span class="token punctuation">=</span><span class="token attr-value">root</span></code></pre>
+<p>添加以上配置后，就可以正常启动项目，但是，启动项目时，只会读取配置信息，并不会执行连接，所以，即使以上配置信息中存在错误的值，也不影响项目启动，同样，也不无法得知以上配置信息是否正确！</p>
+<p>所以，接下来，需要尝试连接到数据库，以确认以上配置信息是否正确！可以在<strong>src/test/java</strong>中<code>cn.tedu.sample</code>中的<code>SampleApplicationTests</code>测试类编写并执行单元测试：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span>SpringRunner<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@SpringBootTest</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SampleApplicationTests</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@Test</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextLoads</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Autowired</span>
+  <span class="token keyword">private</span> DataSource dataSource<span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Test</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<h3 id="2-6-实现注册相关的数据库编程"><a href="#2-6-实现注册相关的数据库编程" class="headerlink" title="2.6. 实现注册相关的数据库编程"></a>2.6. 实现注册相关的数据库编程</h3><p>首先，需要创建用户数据类，用于封装用户数据的属性，所以，在<strong>src/main/java</strong>的<code>cn.tedu.sample</code>包下创建<code>User</code>类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> Integer id<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> String username<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> String password<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> Integer age<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> String phone<span class="token punctuation">;</span>
+  <span class="token keyword">private</span> String email<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 补充SET/GET方法，toString()方法</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>注册功能应该由2项数据操作所组成：先根据用户尝试注册的用户名查询数据，如果查询到某个结果，则表示该用户名已经被占用，不允许插入新的用户数据，如果查询不到结果，则该用户名没有被人占用，将用户尝试注册的信息插入到数据库中即可！所以，涉及操作分别是<strong>根据用户名查询用户数据</strong>和<strong>插入用户数据</strong>。</p>
+<p>先<code>cn.tedu.sample</code>包中创建<code>UserMapper</code>接口，并在接口中添加抽象方法：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>tedu<span class="token punctuation">.</span>sample<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserMapper</span> <span class="token punctuation">{</span>
+
+  Integer <span class="token function">addnew</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  User <span class="token function">findByUsername</span><span class="token punctuation">(</span>String username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>写完接口后，需要配置接口文件的位置，配置的做法可以是：</p>
+<ul>
+<li>在接口的声明之前添加<code>@Mapper</code>注解，使用这种做法，就要求每一个接口都需要添加该注解；</li>
+<li>在启动类（<code>SampleApplication</code>）的声明之前，添加<code>@MapperScan(&quot;接口所在的包&quot;)</code>注解，然后，所有接口都放在配置的包中即可！</li>
+</ul>
+<p>一般推荐使用以上的第2种做法，例如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"cn.tedu.sample"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SampleApplication</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>SampleApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>接下来，就需要配置各抽象方法对应的SQL语句，首先，还是在<strong>src/main/resources</strong>下创建<strong>mappers</strong>文件夹，并在该文件中粘贴得到<strong>UserMapper.xml</strong>，用于配置SQL语句。</p>
+<p>在<strong>UserMapper.xml</strong>中配置SQL语句：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>  
+<span class="token doctype">&lt;!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd"></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapper</span> <span class="token attr-name">namespace</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.tedu.sample.UserMapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>addnew<span class="token punctuation">"</span></span> <span class="token attr-name">useGeneratedKeys</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">keyProperty</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    INSERT INTO t_user (
+      username, password, age, phone, email
+    ) VALUES (
+      #{username}, #{password}, #{age}, #{phone}, #{email}
+    )
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>findByUsername<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>cn.tedu.sample.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    SELECT * FROM t_user WHERE username=#{username}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mapper</span><span class="token punctuation">></span></span></code></pre>
+<p>在执行单元测试之前，还需要指定这些XML文件的位置，需要在<strong>application.properties</strong>中进行配置：</p>
+<pre><code>mybatis.mapper-locations=classpath:mappers/*.xml</code></pre><p>最后，编写并执行单元测试：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RunWith</span><span class="token punctuation">(</span>SpringRunner<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@SpringBootTest</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SampleApplicationTests</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@Test</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">contextLoads</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Autowired</span>
+  <span class="token keyword">private</span> DataSource dataSource<span class="token punctuation">;</span>
+  <span class="token annotation punctuation">@Autowired</span>
+  <span class="token keyword">private</span> UserMapper userMapper<span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Test</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addnew</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setUsername</span><span class="token punctuation">(</span><span class="token string">"lucy02"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">"123456"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setAge</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setPhone</span><span class="token punctuation">(</span><span class="token string">"13900139002"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span><span class="token string">"lucy02@foxmail.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Integer rows <span class="token operator">=</span> userMapper<span class="token punctuation">.</span><span class="token function">addnew</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"rows="</span> <span class="token operator">+</span> rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Test</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">findByUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    String username <span class="token operator">=</span> <span class="token string">"lucy"</span><span class="token punctuation">;</span>
+    User user <span class="token operator">=</span> userMapper<span class="token punctuation">.</span><span class="token function">findByUsername</span><span class="token punctuation">(</span>username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Test</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> SQLException <span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>至此，关于注册时涉及的数据库编程的相关功能就已经完成！</p>
+<p>其实，还可以在抽象方法之前添加注解来配置SQL语句及相关内容，例如：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserMapper</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@Insert</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO t_user (username, password, age, phone, email) VALUES (#{username}, #{password}, #{age}, #{phone}, #{email})"</span><span class="token punctuation">)</span>
+  Integer <span class="token function">addnew</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Select</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM t_user WHERE username=#{username}"</span><span class="token punctuation">)</span>
+  User <span class="token function">findByUsername</span><span class="token punctuation">(</span>String username<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>这种做法也不是SpringBoot集成MyBatis才可以做到的，直接使用MyBatis也可以实现，但是，需要额外的配置，而SpringBoot已经完成了相关的配置，所以，可以直接使用！</p>
+<h3 id="2-7-开发处理注册的控制器"><a href="#2-7-开发处理注册的控制器" class="headerlink" title="2.7. 开发处理注册的控制器"></a>2.7. 开发处理注册的控制器</h3><p>首先，需要创建封装返回结果的<code>JsonResult</code>类，在类中声明需要响应到客户端的JSON数据中的属性：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JsonResult</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> Integer state<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>建议新创建<code>UserController</code>控制器类，在这个控制器类中处理请求：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@Autowired</span>
+  <span class="token keyword">private</span> UserMapper userMapper<span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"reg"</span><span class="token punctuation">)</span>
+  <span class="token keyword">public</span> JsonResult <span class="token function">reg</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    User result <span class="token operator">=</span> userMapper<span class="token punctuation">.</span><span class="token function">findByUsername</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      userMapper<span class="token punctuation">.</span><span class="token function">addnew</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JsonResult</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JsonResult</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>完成后，重新启动项目，在浏览器中访问<code>http://localhost:8080/reg?username=david&amp;password=1234</code>执行测试。</p>
+<h3 id="2-8-前端页面"><a href="#2-8-前端页面" class="headerlink" title="2.8. 前端页面"></a>2.8. 前端页面</h3><p>先从前序项目中复制<strong>reg.html</strong>和jQuery文件到<strong>static</strong>文件夹下。</p>
+<p>为注册的表单设置ID值：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>form-reg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>修改按钮：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">onclick</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>reg()<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>注册<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>然后，引用jQuery文件，并编写代码以提交请求、处理结果：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jquery-3.4.1.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript">
+<span class="token keyword">function</span> <span class="token function">reg</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string">"url"</span><span class="token punctuation">:</span><span class="token string">"/reg"</span><span class="token punctuation">,</span>
+    <span class="token string">"data"</span><span class="token punctuation">:</span><span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#form-reg"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">"post"</span><span class="token punctuation">,</span>
+    <span class="token string">"dataType"</span><span class="token punctuation">:</span><span class="token string">"json"</span><span class="token punctuation">,</span>
+    <span class="token string">"success"</span><span class="token punctuation">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span>json<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>json<span class="token punctuation">.</span>state <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"注册成功！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"注册失败！您尝试注册的用户名已经被占用！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>阿呆</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://www.epsopn.top/archives/c35b400a.html" title="SpringBoot简介">https://www.epsopn.top/archives/c35b400a.html</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener external nofollow noreferrer" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/archives/ab8a344f.html" rel="next" title="今天都干什么了？"><span class="post-nav-text">今天都干什么了？</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div id="comment"><div class="comment-tooltip text-center"></div><div class="comment-container" id="valine-container"></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2020 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 阿呆</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener external nofollow noreferrer">Hexo</a> 驱动 v4.2.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener external nofollow noreferrer" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v0.6.2</span></div><div id="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv" title="总访客量"><span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-user-line"></use></svg></span><span id="busuanzi_value_site_uv"></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv" title="总访问量"><span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg></span><span id="busuanzi_value_site_pv"></span></span></div><script defer src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script>function initValine() {
+  new Valine({"el":"#valine-container","appId":"H6SOkWJYEAHBLSSPvYzFLjxA-gzGzoHsz","appKey":"7X7bhIpbCJcd3nXtQOtiuPhV","placeholder":"大佬求指教&nbsp_(:з」∠)_ ~~这里留言~~","avatar":null,"meta":["nick","mail","link"],"lang":"zh-cn","visitor":true,"recordIP":true,"enableQQ":true});
+}
+document.addEventListener("DOMContentLoaded", function() {
+  initValine();
+});</script></footer><a class="hty-icon-button" id="goUp" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#1cbbb4" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" rel="external nofollow noreferrer" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script defer src="/js/search/index.js"></script><script src="/js/search/local-search.js" defer></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div id="local-search-result"></div></div><script>let date = new Date();
+let today = (date.getMonth() + 1) + "-" + date.getDate()
+if ("4-4,9-18".indexOf(today) !== -1) {
+  document.documentElement.style.filter = "grayscale(1)";
+}</script></div><script defer src="/js/hexo-theme-yun.js"></script></body></html>
