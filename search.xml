@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>SpringMVC框架介绍</title>
+      <link href="/archives/e2a11bfc.html"/>
+      <url>/archives/e2a11bfc.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="1-SpringMVC框架简介"><a href="#1-SpringMVC框架简介" class="headerlink" title="1. SpringMVC框架简介"></a>1. SpringMVC框架简介</h2><p>MVC = Model（数据模型） + View（视图） + Controller（控制器）</p><p>SpringMVC框架主要解决了VC之间的交互问题！在SpringMVC框架中，并不关心M的问题！</p><a id="more"></a><p>在传统的Java EE开发模式下，是使用Servlet组件作为项目的控制器，假设项目中有“用户注册”的功能，则可能需要创建<code>UserRegServlet</code>，如果还有“用户登录”功能，则可能需要创建<code>UserLoginServlet</code>，以此类推，每增加1个新的功能，就需要开发一个新的Servlet，如果某个项目中有100个功能，就需要开发100个Servlet，如果有500个功能，就需要开发500个Servlet！而且，每个Servlet可能还需要添加相关的配置，所以，一旦Servlet的数量过多，就会不利于管理和维护，并且，在服务器运行时，需要创建很多Servlet类的对象，会消耗较多的内存空间。</p><p>另外，Java EE的许多API并不简洁，在使用时并不是那么方便！</p><p>使用SpringMVC框架，以上问题都可以被解决！</p><h2 id="2-SpringMVC核心组件"><a href="#2-SpringMVC核心组件" class="headerlink" title="2. SpringMVC核心组件"></a>2. SpringMVC核心组件</h2><ul><li>DispatcherServlet：前端控制器，用于接收所有请求；</li><li>HandlerMapping：用于配置请求路径与Controller组件的对应关系；</li><li>Controller：控制器，具体处理请求的组件；</li><li>ModelAndView：Controller组件处理完请求后得到的结果，由数据与视图名称组成；</li><li>ViewResolver：视图解析器，可根据视图名称确定需要使用的视图组件。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> SpringMVC </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SpringMVC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringBoot简介</title>
       <link href="/archives/c35b400a.html"/>
       <url>/archives/c35b400a.html</url>
