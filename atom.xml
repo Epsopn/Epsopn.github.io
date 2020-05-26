@@ -41,30 +41,6 @@
   </entry>
   
   <entry>
-    <title>mac安装Hexo</title>
-    <link href="https://www.epsopn.top/archives/71256fba.html"/>
-    <id>https://www.epsopn.top/archives/71256fba.html</id>
-    <published>2020-05-23T08:57:30.000Z</published>
-    <updated>2020-05-23T09:48:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p><pre class=" language-ruby"><code class="language-ruby">$ npm install <span class="token operator">-</span>g hexo<span class="token operator">-</span>cli</code></pre><a id="more"></a><p>这个安装的时候，我遇到了这样的报错：</p><p><img src="https://cdn.jsdelivr.net/gh/Epsopn/bizhi@master/B.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>而且在用</p><pre class=" language-ruby"><code class="language-ruby">$ hexo init</code></pre><p>这个时候，会出现command not found。命令未找到。</p><p>这报错的原因在于执行安装命令的时候我没有获取管理员权限。<br>请使用：</p><pre class=" language-ruby"><code class="language-ruby">$ sudo <span class="token operator">-</span>s</code></pre><p>获取管理员权限在重新安装hexo执行安装命令。</p><p>之后重启终端就可以正常使用了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装-Hexo&quot;&gt;&lt;a href=&quot;#安装-Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装 Hexo&quot;&gt;&lt;/a&gt;安装 Hexo&lt;/h3&gt;&lt;p&gt;所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;$ npm install -g hexo-cli&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-    
-      <category term="日记" scheme="https://www.epsopn.top/categories/%E6%97%A5%E8%AE%B0/"/>
-    
-    
-      <category term="心得" scheme="https://www.epsopn.top/tags/%E5%BF%83%E5%BE%97/"/>
-    
-  </entry>
-  
-  <entry>
     <title>SpringMVC框架介绍</title>
     <link href="https://www.epsopn.top/archives/e2a11bfc.html"/>
     <id>https://www.epsopn.top/archives/e2a11bfc.html</id>
