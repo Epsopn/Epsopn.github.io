@@ -31,8 +31,6 @@ body {
   background: ;
   background-attachment: local;
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -1462,6 +1460,8 @@ canvas:not(#ribbon-canvas),
   background: #f6f8fa;
   color: #90a4ae;
   line-height: 20px;
+  counter-reset: line;
+  white-space: pre-wrap;
 }
 .code-area-wrap {
   position: relative;
@@ -1515,6 +1515,7 @@ blockquote footer cite:before {
 #article-container figure.highlight {
   position: relative;
   border-radius: 1px;
+  display: none;
 }
 #article-container figure.highlight pre {
   margin: 0;
@@ -1524,6 +1525,15 @@ blockquote footer cite:before {
 #article-container figure.highlight .line::selection {
   background: rgba(128,203,196,0.251);
   color: #90a4ae;
+}
+#article-container figure.highlight .line:before {
+  display: inline-block;
+  padding: 0 0.3rem 0 0;
+  min-width: 1.6rem;
+  color: #cfd8dc;
+  content: counter(line);
+  counter-increment: line;
+  text-align: left;
 }
 #article-container figure.highlight .line.marked {
   background-color: rgba(128,203,196,0.251);
@@ -2207,8 +2217,6 @@ blockquote footer cite:before {
   background: #49b1f5;
   background-attachment: local;
   background-position: bottom;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
 }
 #footer-wrap {
@@ -2238,8 +2246,6 @@ blockquote footer cite:before {
   background-color: #49b1f5;
   background-attachment: local;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   -webkit-transition: all 0.5s;
